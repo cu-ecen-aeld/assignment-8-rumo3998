@@ -17,7 +17,7 @@ AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/finder-app all
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server all
-	$(MAKE) $(LINUX_MAKE_FLAGS) -C $(@D)/aesd-char-driver all
+	$(MAKE) $(LINUX_MAKE_FLAGS) -C $(@D)/aesd-char-driver KERNELDIR="$(LINUX_DIR)" all
 endef
 
 #Add your writer, finder and finder-test utilities/scripts to the installation steps below
