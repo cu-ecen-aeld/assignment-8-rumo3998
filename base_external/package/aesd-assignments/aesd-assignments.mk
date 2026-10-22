@@ -6,7 +6,7 @@
 ##############################################################
 
 #Fill up the contents below in order to reference your assignment 3 git contents
-AESD_ASSIGNMENTS_VERSION = cd6c1a203e2a6761c8310f99d3608017cc782e3e
+AESD_ASSIGNMENTS_VERSION = 44bde124423491a79078da1aa917c453b8c2255e
 # Note: Be sure to reference the *ssh* repository URL here (not https) to work properly
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
@@ -16,7 +16,7 @@ AESD_ASSIGNMENTS_GIT_SUBMODULES = YES
 
 define AESD_ASSIGNMENTS_BUILD_CMDS
 	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/finder-app all
-	$(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/server all
+	$(MAKE) $(TARGET_CONFIGURE_OPTS) USE_AESD_CHAR_DEVICE=1 -C $(@D)/server all	
 	$(MAKE) $(LINUX_MAKE_FLAGS) -C $(@D)/aesd-char-driver KERNELDIR="$(LINUX_DIR)" all
 endef
 
